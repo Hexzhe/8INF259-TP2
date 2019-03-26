@@ -14,7 +14,10 @@ public:
 	std::string ancetresDeNiveau(unsigned int niveau);
 
 private:
-	//TODO
+	Cell* root();
+	Cell* current();
+
+	//TODO: Navigation and other basic operations
 };
 
 template<class Cell>

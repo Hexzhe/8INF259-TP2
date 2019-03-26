@@ -152,12 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ChromoCell.h" />
+    <ClInclude Include="ChromoPair.h" />
     <ClInclude Include="ColorCell.h" />
     <ClInclude Include="GenTree.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChromoCell.cpp" />
+    <ClCompile Include="ChromoPair.cpp" />
     <ClCompile Include="ColorCell.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
