@@ -7,17 +7,19 @@ class ChromoCell
 {
 public:
 	ChromoCell() {};
-	ChromoCell(ChromoPair pair1, ChromoPair pair2, ChromoPair pair3, ChromoPair pair4);
+	ChromoCell(ChromoPair* pair1, ChromoPair* pair2, ChromoPair* pair3, ChromoPair* pair4);
 	~ChromoCell();
 
 private:
+
 	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
 
-	ChromoCell* left();
-	ChromoCell* right();
+	ChromoCell* parent;
+	ChromoCell* left;
+	ChromoCell* right;
 
-	ChromoPair pair1;
-	ChromoPair pair2;
-	ChromoPair pair3;
-	ChromoPair pair4;
+	ChromoPair* pair1;
+	ChromoPair* pair2;
+	ChromoPair* pair3;
+	ChromoPair* pair4;
 };
