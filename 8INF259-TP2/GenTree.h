@@ -22,20 +22,14 @@ private:
 template<class Cell>
 std::ostream& operator << (std::ostream& out, const GenTree<Cell>& cell)
 {
-	//TODO: Output tree content
+	//TODO: Output tree content; Navigate the tree and output the values in the stream {out} then return it (probably the hardest part of the project, I haven't thought about how to navigate the tree properly)
 	return out;
 }
 
 template<class Cell>
 GenTree<Cell>::GenTree(const std::vector<Cell>& population)
 {
-	////TODO: Add first one as root
-	//root = population[0]; //Learn vectors retard
-
-	////TODO: Next are added to the current root to make a new cell
-	//typename std::vector<ChromoCell>::iterator it;
-	//for (it = population.begin()+1; it != population.end(); ++it)
-	//	*it >> root; //we,fjghqewkljfghvb
+	//TODO: Fill the tree; Iterate through {population}, start with adding one cell as root then for the next cells add them to the current root (+ operator) and set the result as the new root. The + operator should take care of handling parent/childs pointers.
 }
 
 template<class Cell>
