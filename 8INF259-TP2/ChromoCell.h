@@ -13,6 +13,7 @@ public:
 private:
 
 	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
+	friend ChromoCell operator + (const ChromoCell& b);
 
 	ChromoCell* parent;
 	ChromoCell* left;
