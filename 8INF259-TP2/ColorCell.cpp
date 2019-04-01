@@ -15,7 +15,8 @@ ColorCell::~ColorCell()
 
 std::istream& operator >> (std::istream& in, ColorCell& cell)
 {
-	//TODO: Read from the stream {in} and fill the cell's properties (see main.cpp L.25). This is kind of replacing the constructor.
+	in >> cell.r >> cell.g >> cell.b;
+
 	return in;
 }
 

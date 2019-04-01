@@ -11,17 +11,30 @@ ChromoCell::ChromoCell(ChromoPair* pair1, ChromoPair* pair2, ChromoPair* pair3, 
 
 ChromoCell::~ChromoCell()
 {
-	delete pair1;
-	delete pair2;
-	delete pair3;
-	delete pair4;
+	//delete this->pair1; //FIXME: There is a weird exception there
+	//delete this->pair2;
+	//delete this->pair3;
+	//delete this->pair4;
 
 	//TODO: Delete cell.left and cell.right recursively (see how we did it in the TP1, maybe this will be handled by the tree itself I don't know)
 }
 
 std::istream& operator >> (std::istream& in, ChromoCell& cell)
 {
-	//TODO: Read from the stream {in} and fill the cell's properties (see main.cpp L.25). This is kind of replacing the constructor.
+	std::string tmp;
+
+	in >> tmp;
+	cell.pair1 = new ChromoPair(tmp.at(0), tmp.at(1));
+
+	in >> tmp;
+	cell.pair2 = new ChromoPair(tmp.at(0), tmp.at(1));
+
+	in >> tmp;
+	cell.pair3 = new ChromoPair(tmp.at(0), tmp.at(1));
+
+	in >> tmp;
+	cell.pair4 = new ChromoPair(tmp.at(0), tmp.at(1));
+
 	return in;
 }
 
