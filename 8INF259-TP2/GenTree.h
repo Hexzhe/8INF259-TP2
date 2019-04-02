@@ -3,8 +3,9 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
-#include <ctime>    // For time()
-#include <cstdlib>  // For srand()
+#include <ctime> //time()
+#include <cstdlib> //srand()
+#include<sstream> //ostringstream
 
 template<class Cell>
 class GenTree
@@ -66,6 +67,7 @@ std::string GenTree<Cell>::ancetresDeNiveau(unsigned int niveau)
 template<class Cell>
 std::string GenTree<Cell>::individuResultant()
 {
-	//TODO: Return root as string
-	return "";
+	std::ostringstream ss;
+	ss << *root;
+	return ss.str();
 }

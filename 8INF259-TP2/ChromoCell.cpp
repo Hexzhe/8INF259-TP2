@@ -55,3 +55,9 @@ ChromoCell* operator + (ChromoCell& a, ChromoCell& b)
 
 	return c;
 }
+
+std::ostream& operator << (std::ostream& out, const ChromoCell& cell)
+{
+	out << "This is a ChromoCell" << std::flush;
+	return out;
+}

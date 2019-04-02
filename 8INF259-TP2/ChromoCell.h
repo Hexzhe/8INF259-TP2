@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "ChromoPair.h"
+#include <sstream> //ostringstream
 
 class ChromoCell
 {
@@ -23,4 +24,5 @@ private:
 
 	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
 	friend ChromoCell* operator + (ChromoCell& a, ChromoCell& b);
+	friend std::ostream& operator << (std::ostream& out, const ChromoCell& cell);
 };
