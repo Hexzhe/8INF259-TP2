@@ -15,10 +15,7 @@ ColorCell::~ColorCell()
 
 std::istream& operator >> (std::istream& in, ColorCell& cell)
 {//FIXME: First load have an empty item at the end (doesn't happen with ChromoCell)
-	in >> cell.r;
-	in >> cell.g;
-	in >> cell.b;
-
+	in >> cell.r >> cell.g >> cell.b;
 	return in;
 }
 
