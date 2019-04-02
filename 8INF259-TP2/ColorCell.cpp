@@ -35,3 +35,9 @@ ColorCell* operator + (ColorCell& a, ColorCell& b)
 
 	return c;
 }
+
+std::ostream& operator << (std::ostream& out, const ColorCell& cell)
+{
+	out << "This is a ColorCell" << std::flush;
+	return out;
+}
