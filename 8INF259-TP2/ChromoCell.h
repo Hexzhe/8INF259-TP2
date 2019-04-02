@@ -22,5 +22,5 @@ public:
 private:
 
 	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
-	friend ChromoCell* operator + (const ChromoCell& a, const ChromoCell& b);
+	friend ChromoCell* operator + (ChromoCell& a, ChromoCell& b);
 };

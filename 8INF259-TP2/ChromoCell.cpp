@@ -38,7 +38,7 @@ std::istream& operator >> (std::istream& in, ChromoCell& cell)
 	return in;
 }
 
-ChromoCell* operator + (const ChromoCell& a, const ChromoCell& b)
+ChromoCell* operator + (ChromoCell& a, ChromoCell& b)
 {
 	ChromoCell* c = new ChromoCell;
 	
@@ -46,6 +46,12 @@ ChromoCell* operator + (const ChromoCell& a, const ChromoCell& b)
 	c->pair2 = *a.pair2 + *b.pair2;
 	c->pair3 = *a.pair3 + *b.pair3;
 	c->pair4 = *a.pair4 + *b.pair4;
+
+	a.parent = c;
+	b.parent = c;
+
+	c->left = &a;
+	c->right = &b;
 
 	return c;
 }

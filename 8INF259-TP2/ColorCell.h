@@ -14,7 +14,7 @@ public:
 
 private:
 	friend std::istream& operator >> (std::istream& in, ColorCell& cell);
-	friend ColorCell* operator + (const ColorCell& a, const ColorCell& b);
+	friend ColorCell* operator + (ColorCell& a, ColorCell& b);
 
 	ColorCell* parent;
 	ColorCell* left;
