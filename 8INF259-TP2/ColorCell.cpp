@@ -14,14 +14,27 @@ ColorCell::~ColorCell()
 }
 
 std::istream& operator >> (std::istream& in, ColorCell& cell)
-{
-	in >> cell.r >> cell.g >> cell.b;
+{//FIXME: First load have an empty item at the end (doesn't happen with ChromoCell)
+	in >> cell.r;
+	in >> cell.g;
+	in >> cell.b;
 
 	return in;
 }
 
-ColorCell operator + (const ColorCell& b)
+ColorCell* operator + (ColorCell& a, ColorCell& b)
 {
-	//TODO: Generate a new cell (c) from the two cells (a and b) (c.r = (a.r + b.r)/2, etc.), add a and b as child left and right of c, add c as parent of a and b.
-	return b;
+	ColorCell* c = new ColorCell;
+
+	c->r = (a.r + b.r) / 2;
+	c->g = (a.g + b.g) / 2;
+	c->b = (a.b + b.b) / 2;
+
+	a.parent = c;
+	b.parent = c;
+
+	c->left = &a;
+	c->right = &b;
+
+	return c;
 }

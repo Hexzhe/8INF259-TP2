@@ -1,5 +1,7 @@
 #pragma once
 #include <cctype>
+#include <ctime>    // For time()
+#include <cstdlib>  // For srand() and rand()
 
 class ChromoPair
 {
@@ -10,4 +12,7 @@ public:
 
 	char a;
 	char b;
+
+private:
+	friend ChromoPair* operator + (const ChromoPair& a, const ChromoPair& b);
 };

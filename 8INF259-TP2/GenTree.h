@@ -29,7 +29,20 @@ std::ostream& operator << (std::ostream& out, const GenTree<Cell>& cell)
 template<class Cell>
 GenTree<Cell>::GenTree(const std::vector<Cell>& population)
 {
-	//TODO: Fill the tree; Iterate through {population}, start with adding one cell as root then for the next cells add them to the current root (+ operator) and set the result as the new root. The + operator should take care of handling parent/childs pointers.
+	bool isFirst = true;
+	for (Cell cell : population)
+	{
+		if (isFirst)
+		{//Only for the first one
+			root = &cell; //FIXME: Fucked up reference to root or cell somewhere
+
+			isFirst = false;
+			continue;
+		}
+
+		Cell* newCell = *root + cell;
+		root = newCell;
+	}
 }
 
 template<class Cell>
