@@ -34,17 +34,11 @@ GenTree<Cell>::GenTree(std::vector<Cell>& population)
 {
 	srand((unsigned)time(0));
 
-	bool isFirst = true;
-	for (typename std::vector<Cell>::iterator it = population.begin(); it != population.end(); it++)
+	typename std::vector<Cell>::iterator it = population.begin();
+	root = &(*it++); //Only for the first item
+
+	for ( ; it != population.end(); it++)
 	{
-		if (isFirst)
-		{//Only for the first one
-			root = &(*it);
-
-			isFirst = false;
-			continue;
-		}
-
 		Cell* newCell = *root + *it;
 		root = newCell;
 	}
