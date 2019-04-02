@@ -38,8 +38,14 @@ std::istream& operator >> (std::istream& in, ChromoCell& cell)
 	return in;
 }
 
-ChromoCell operator + (const ChromoCell& b)
+ChromoCell* operator + (const ChromoCell& a, const ChromoCell& b)
 {
-	//TODO: Generate a new cell (c) from the two cells (a and b) (one random chromosome from a.pair1 and one random chromosome from b.pair1, for each pair), add a and b as child left and right of c, add c as parent of a and b.
-	return b;
+	ChromoCell* c = new ChromoCell;
+	
+	c->pair1 = *a.pair1 + *b.pair1;
+	c->pair2 = *a.pair2 + *b.pair2;
+	c->pair3 = *a.pair3 + *b.pair3;
+	c->pair4 = *a.pair4 + *b.pair4;
+
+	return c;
 }

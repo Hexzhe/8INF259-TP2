@@ -29,7 +29,7 @@ std::ostream& operator << (std::ostream& out, const GenTree<Cell>& cell)
 template<class Cell>
 GenTree<Cell>::GenTree(const std::vector<Cell>& population)
 {
-	//TODO: Fill the tree; Iterate through {population}, start with adding one cell as root then for the next cells add them to the current root (+ operator) and set the result as the new root. The + operator should take care of handling parent/childs pointers.
+	//TODO: Fill the tree; Iterate through {population}, start with adding one cell as root then for the next cells add them to the current root (+ operator) and set the result as the new root. Don't forget to set the new cell's childs pointers and the child cells' parent pointer.
 }
 
 template<class Cell>

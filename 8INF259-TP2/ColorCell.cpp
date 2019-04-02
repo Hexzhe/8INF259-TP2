@@ -20,8 +20,13 @@ std::istream& operator >> (std::istream& in, ColorCell& cell)
 	return in;
 }
 
-ColorCell operator + (const ColorCell& b)
+ColorCell* operator + (const ColorCell& a, const ColorCell& b)
 {
-	//TODO: Generate a new cell (c) from the two cells (a and b) (c.r = (a.r + b.r)/2, etc.), add a and b as child left and right of c, add c as parent of a and b.
-	return b;
+	ColorCell* c = new ColorCell;
+
+	c->r = (a.r + b.r) / 2;
+	c->g = (a.g + b.g) / 2;
+	c->b = (a.b + b.b) / 2;
+
+	return c;
 }

@@ -10,11 +10,6 @@ public:
 	ChromoCell(ChromoPair* pair1, ChromoPair* pair2, ChromoPair* pair3, ChromoPair* pair4);
 	~ChromoCell();
 
-private:
-
-	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
-	friend ChromoCell operator + (const ChromoCell& b);
-
 	ChromoCell* parent;
 	ChromoCell* left;
 	ChromoCell* right;
@@ -23,4 +18,9 @@ private:
 	ChromoPair* pair2;
 	ChromoPair* pair3;
 	ChromoPair* pair4;
+
+private:
+
+	friend std::istream& operator >> (std::istream& in, ChromoCell& cell);
+	friend ChromoCell* operator + (const ChromoCell& a, const ChromoCell& b);
 };
