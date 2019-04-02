@@ -38,6 +38,6 @@ ColorCell* operator + (ColorCell& a, ColorCell& b)
 
 std::ostream& operator << (std::ostream& out, const ColorCell& cell)
 {
-	out << "This is a ColorCell" << std::flush;
+	out << cell.r << " " << cell.g << " " << cell.b << std::flush;
 	return out;
 }

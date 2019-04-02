@@ -58,6 +58,11 @@ ChromoCell* operator + (ChromoCell& a, ChromoCell& b)
 
 std::ostream& operator << (std::ostream& out, const ChromoCell& cell)
 {
-	out << "This is a ChromoCell" << std::flush;
+	out << cell.pair1->a << cell.pair1->b << " ";
+	out << cell.pair2->a << cell.pair2->b << " ";
+	out << cell.pair3->a << cell.pair3->b << " ";
+	out << cell.pair4->a << cell.pair4->b << " ";
+	out << std::flush;
+
 	return out;
 }
