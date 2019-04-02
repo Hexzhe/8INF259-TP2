@@ -33,6 +33,9 @@
     <ClInclude Include="ChromoPair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenTreeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

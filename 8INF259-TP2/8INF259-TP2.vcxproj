@@ -155,6 +155,7 @@
     <ClInclude Include="ChromoPair.h" />
     <ClInclude Include="ColorCell.h" />
     <ClInclude Include="GenTree.h" />
+    <ClInclude Include="GenTreeNode.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>

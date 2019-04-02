@@ -27,12 +27,6 @@ ColorCell* operator + (ColorCell& a, ColorCell& b)
 	c->g = (a.g + b.g) / 2;
 	c->b = (a.b + b.b) / 2;
 
-	a.parent = c;
-	b.parent = c;
-
-	c->left = &a;
-	c->right = &b;
-
 	return c;
 }
 
