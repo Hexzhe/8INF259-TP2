@@ -3,12 +3,14 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <ctime>    // For time()
+#include <cstdlib>  // For srand()
 
 template<class Cell>
 class GenTree
 {
 public:
-	GenTree(const std::vector<Cell>& population);
+	GenTree(std::vector<Cell>& population);
 
 	std::string individuResultant();
 
@@ -27,20 +29,22 @@ std::ostream& operator << (std::ostream& out, const GenTree<Cell>& cell)
 }
 
 template<class Cell>
-GenTree<Cell>::GenTree(const std::vector<Cell>& population)
+GenTree<Cell>::GenTree(std::vector<Cell>& population)
 {
+	srand((unsigned)time(0));
+
 	bool isFirst = true;
-	for (Cell cell : population)
+	for (typename std::vector<Cell>::iterator it = population.begin(); it != population.end(); it++)
 	{
 		if (isFirst)
 		{//Only for the first one
-			root = &cell; //FIXME: Fucked up reference to root or cell somewhere
+			root = &(*it);
 
 			isFirst = false;
 			continue;
 		}
 
-		Cell* newCell = *root + cell;
+		Cell* newCell = *root + *it;
 		root = newCell;
 	}
 }

@@ -1,7 +1,6 @@
 #pragma once
-#include <cctype>
-#include <ctime>    // For time()
-#include <cstdlib>  // For srand() and rand()
+#include <cctype> //toupper
+#include <cstdlib> // For rand()
 
 class ChromoPair
 {

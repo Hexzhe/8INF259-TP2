@@ -11,7 +11,6 @@ ChromoPair* operator + (const ChromoPair& a, const ChromoPair& b)
 {
 	ChromoPair* c = new ChromoPair;
 
-	srand((unsigned)time(0));
 	int r1 = (rand() % 2), r2 = (rand() % 2), r3 = (rand() % 2); //Flip 3 coins
 
 	if (r1)
