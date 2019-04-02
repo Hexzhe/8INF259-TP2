@@ -20,7 +20,7 @@ public:
 	std::string ancetresDeNiveau(unsigned int niveau);
 
 private:
-	T* root;
+	GenTreeNode<T>* root;
 };
 
 template<class T>
@@ -36,11 +36,11 @@ GenTree<T>::GenTree(std::vector<T>& population)
 	srand((unsigned)time(0));
 
 	typename std::vector<T>::iterator it = population.begin();
-	root = &(*it++); //Only for the first item
+	root = new GenTreeNode<T>(&(*it++)); //Only for the first item
 
 	for ( ; it != population.end(); it++)
 	{
-		T* newCell = *root + *it;
+		GenTreeNode<T>* newCell = (*root + *(new GenTreeNode<T>(&(*it))));
 		root = newCell;
 	}
 }

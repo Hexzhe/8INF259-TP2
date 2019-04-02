@@ -11,10 +11,6 @@ public:
 	ChromoCell(ChromoPair* pair1, ChromoPair* pair2, ChromoPair* pair3, ChromoPair* pair4);
 	~ChromoCell();
 
-	ChromoCell* parent;
-	ChromoCell* left;
-	ChromoCell* right;
-
 	ChromoPair* pair1;
 	ChromoPair* pair2;
 	ChromoPair* pair3;

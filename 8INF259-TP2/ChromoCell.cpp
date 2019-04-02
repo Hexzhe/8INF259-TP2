@@ -15,8 +15,6 @@ ChromoCell::~ChromoCell()
 	//delete this->pair2;
 	//delete this->pair3;
 	//delete this->pair4;
-
-	//TODO: Delete cell.left and cell.right recursively (see how we did it in the TP1, maybe this will be handled by the tree itself I don't know)
 }
 
 std::istream& operator >> (std::istream& in, ChromoCell& cell)
@@ -46,12 +44,6 @@ ChromoCell* operator + (ChromoCell& a, ChromoCell& b)
 	c->pair2 = *a.pair2 + *b.pair2;
 	c->pair3 = *a.pair3 + *b.pair3;
 	c->pair4 = *a.pair4 + *b.pair4;
-
-	a.parent = c;
-	b.parent = c;
-
-	c->left = &a;
-	c->right = &b;
 
 	return c;
 }
