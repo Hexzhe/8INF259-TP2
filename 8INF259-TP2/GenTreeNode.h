@@ -14,7 +14,10 @@ public:
 	};
 	~GenTreeNode() 
 	{
-		//TODO: delete pointers recursively
+		if (left == nullptr)
+			return;
+
+		delete left, right;
 	};
 
 	GenTreeNode<T>* parent;

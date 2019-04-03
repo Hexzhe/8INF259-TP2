@@ -14,6 +14,10 @@ class GenTree
 {
 public:
 	GenTree(std::vector<T>& population);
+	~GenTree()
+	{
+		delete root;
+	};
 
 	std::string individuResultant();
 

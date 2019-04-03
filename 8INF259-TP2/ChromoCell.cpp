@@ -11,10 +11,9 @@ ChromoCell::ChromoCell(ChromoPair* pair1, ChromoPair* pair2, ChromoPair* pair3, 
 
 ChromoCell::~ChromoCell()
 {
-	//delete this->pair1; //FIXME: There is a weird exception there
-	//delete this->pair2;
-	//delete this->pair3;
-	//delete this->pair4;
+	pair1 = pair2 = pair3 = pair4 = nullptr;
+
+	delete pair1, pair2, pair3, pair4;
 }
 
 std::istream& operator >> (std::istream& in, ChromoCell& cell)
