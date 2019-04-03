@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ColorCell.h"
+#include <iomanip>
 
 ColorCell::ColorCell(int r, int g, int b)
 {
@@ -14,7 +15,7 @@ ColorCell::~ColorCell()
 }
 
 std::istream& operator >> (std::istream& in, ColorCell& cell)
-{//FIXME: First load have an empty item at the end (doesn't happen with ChromoCell)
+{
 	in >> cell.r >> cell.g >> cell.b;
 	return in;
 }
@@ -32,6 +33,6 @@ ColorCell* operator + (ColorCell& a, ColorCell& b)
 
 std::ostream& operator << (std::ostream& out, const ColorCell& cell)
 {
-	out << cell.r << " " << cell.g << " " << cell.b << std::flush;
+	out << std::setw(3) << cell.r << " " << std::setw(3) << cell.g << " " << std::setw(3) << cell.b << std::flush;
 	return out;
 }

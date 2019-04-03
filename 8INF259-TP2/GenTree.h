@@ -3,6 +3,7 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <string>
 #include <ctime> //time()
 #include <cstdlib> //srand()
 #include <sstream> //ostringstream
@@ -19,14 +20,22 @@ public:
 	unsigned int nombreDeGeneration();
 	std::string ancetresDeNiveau(unsigned int niveau);
 
-private:
 	GenTreeNode<T>* root;
 };
 
 template<class T>
-std::ostream& operator << (std::ostream& out, const GenTree<T>& cell)
+std::ostream& operator << (std::ostream& out, const GenTree<T>& tree)
 {
-	//TODO: Output tree content; Navigate the tree and output the values in the stream {out} then return it (probably the hardest part of the project, I haven't thought about how to navigate the tree properly)
+	GenTreeNode<T>* curNode = tree.root;
+
+	out << *curNode << std::endl;
+
+	for (size_t cptLvl = 1; curNode->left != nullptr; cptLvl++, curNode = curNode->left)
+	{
+		out << std::string((cptLvl*2), ' ') << *curNode->left << std::endl;
+		out << std::string((cptLvl*2), ' ') << *curNode->right << std::endl;	
+	}
+
 	return out;
 }
 
@@ -38,7 +47,7 @@ GenTree<T>::GenTree(std::vector<T>& population)
 	typename std::vector<T>::iterator it = population.begin();
 	root = new GenTreeNode<T>(&(*it++)); //Only for the first item
 
-	for ( ; it != population.end(); it++)
+	for (; it != population.end(); it++)
 	{
 		GenTreeNode<T>* newCell = (*root + *(new GenTreeNode<T>(&(*it))));
 		root = newCell;
@@ -48,15 +57,31 @@ GenTree<T>::GenTree(std::vector<T>& population)
 template<class T>
 unsigned int GenTree<T>::nombreDeGeneration()
 {
-	//TODO: Start from the root and navigate to the oldest generation cell by using cell.left (right is going to be the newly added cell to each generation, left is going to lead you to the first cell added)
-	return 0;
+	int cptGen;
+	GenTreeNode<T>* curNode = root;
+
+	for (cptGen = 1; curNode->left != nullptr; cptGen++)
+		curNode = curNode->left;
+
+	return cptGen;
 }
 
 template<class T>
 std::string GenTree<T>::ancetresDeNiveau(unsigned int niveau)
 {
-	//TODO: Navigate from the root to level {niveau - 1} (using cell.left again) and return cell.left and cell.right in a string
-	return "";
+	GenTreeNode<T>* curNode = root;
+
+	for (size_t cptGen = 0; cptGen < niveau; cptGen++)
+		curNode = curNode->left;
+
+	std::ostringstream oss;
+
+	if (niveau != 0)
+		oss << *curNode->parent->left << "| " << *curNode->parent->right;
+	else
+		oss << *curNode;
+
+	return oss.str();
 }
 
 template<class T>
